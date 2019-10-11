@@ -7,7 +7,7 @@ namespace Bakery.Controllers
 {
   public class VendorsController : Controller
   {
-    [HttpGet("/vendor")]
+    [HttpGet("/vendors")]
     public ActionResult Index()
     {
       List<Vendor> allVendors = Vendor.GetAll();
@@ -39,7 +39,7 @@ namespace Bakery.Controllers
     }
 
     // This one creates new Items within a given Category, not new Categories:
-    [HttpPost("/categories/{categoryId}/items")]
+    [HttpPost("/categories/{categoryId}/orders")]
     public ActionResult Create(int vendorId, string orderName, string orderDescription, int price, string date)
     {
     Dictionary<string, object> model = new Dictionary<string, object>();
