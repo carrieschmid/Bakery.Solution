@@ -18,8 +18,8 @@ namespace Bakery.Models
             Description = description;
             Price = price;
             Date = date;
-            Id = _instances.Count;
             _instances.Add(this);
+            Id = _instances.Count;
         }
 
         public static List<Order> GetAll()

@@ -30,7 +30,7 @@ namespace Bakery.Models
         return _instances;
         }
 
-        public void AddItem(Order order)
+        public void AddOrder(Order order)
         {
         Orders.Add(order);
         }

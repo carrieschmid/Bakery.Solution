@@ -45,7 +45,7 @@ namespace Bakery.Controllers
     Dictionary<string, object> model = new Dictionary<string, object>();
     Vendor foundVendor= Vendor.Find(vendorId);
     Order newOrder = new Order(orderName, orderDescription, price, date);
-    foundVendor.AddItem(newOrder);
+    foundVendor.AddOrder(newOrder);
     List<Order> vendorOrders = foundVendor.Orders;
     model.Add("orders", vendorOrders);
     model.Add("vendor", foundVendor);

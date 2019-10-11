@@ -27,10 +27,10 @@ namespace Bakery.Tests
     {
       //Arrange
       string name = "Test Category";
-      Category newCategory = new Category(name);
+      Vendor newVendor = new Vendor(name);
 
       //Act
-      string result = newCategory.Name;
+      string result = newVendor.Name;
 
       //Assert
       Assert.AreEqual(name, result);
@@ -41,61 +41,64 @@ namespace Bakery.Tests
   {
     //Arrange
     string name = "Test Category";
-    Category newCategory = new Category(name);
+    Vendor newVendor = new Vendor(name);
 
     //Act
-    int result = newCategory.Id;
+    int result = newVendor.Id;
 
     //Assert
     Assert.AreEqual(1, result);
   }
 
   [TestMethod]
-  public void GetAll_ReturnsAllCategoryObjects_CategoryList()
+  public void GetAll_ReturnsAllCategoryObjects_VendorList()
   {
     //Arrange
-    string name01 = "Work";
-    string name02 = "School";
-    Category newCategory1 = new Category(name01);
-    Category newCategory2 = new Category(name02);
-    List<Category> newList = new List<Category> { newCategory1, newCategory2 };
+    string name01 = "Maagie's Buns";
+    string name02 = "Cake Place";
+    Vendor newVendor1 = new Vendor(name01);
+    Vendor newVendor2 = new Vendor(name02);
+    List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
 
     //Act
-    List<Category> result = Category.GetAll();
+    List<Vendor> result = Vendor.GetAll();
 
     //Assert
     CollectionAssert.AreEqual(newList, result);
   }
 
   [TestMethod]
-  public void Find_ReturnsCorrectCategory_Category()
+  public void Find_ReturnsCorrectVendor_Vendor()
   {
     //Arrange
-    string name01 = "Work";
-    string name02 = "School";
-    Category newCategory1 = new Category(name01);
-    Category newCategory2 = new Category(name02);
+    string name01 = "Maagie's Buns";
+    string name02 = "Cake Place";
+    Vendor newVendor1 = new Vendor(name01);
+    Vendor newVendor2 = new Vendor(name02);
 
     //Act
-    Category result = Category.Find(2);
+    Vendor result = Vendor.Find(2);
 
     //Assert
-    Assert.AreEqual(newCategory2, result);
+    Assert.AreEqual(newVendor2, result);
   }
 
   [TestMethod]
-  public void AddItem_AssociatesItemWithCategory_ItemList()
+  public void AddOrder_AssociatesOrderWithVendor_OrderList()
   {
     //Arrange
-    string description = "Walk the dog.";
-    Item newItem = new Item(description);
-    List<Item> newList = new List<Item> { newItem };
-    string name = "Work";
-    Category newCategory = new Category(name);
-    newCategory.AddItem(newItem);
+    string name = "Maggie's Buns";
+    string description = "cinnamon buns";
+    int price = 30;
+    string date = "Oct, 11 2019";
+    Order newOrder = new Order(name, description, price, date);
+    List<Order> newList = new List<Order> { newOrder };
+    string vendorName = "Maggie's Buns";
+    Vendor newVendor = new Vendor(vendorName);
+    newVendor.AddOrder(newOrder);
 
     //Act
-    List<Item> result = newCategory.Items;
+    List<Order> result = newVendor.Orders;
 
     //Assert
     CollectionAssert.AreEqual(newList, result);
