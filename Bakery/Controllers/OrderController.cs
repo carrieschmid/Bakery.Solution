@@ -6,14 +6,14 @@ namespace Bakery.Controllers
 {
   public class OrderController : Controller
   {
-    [HttpGet("/vendors/{vendorName}/orders/new")]
+    [HttpGet("/vendors/{vendorId}/orders/new")]
     public ActionResult New(int vendorId)
     {
       Vendor vendor = Vendor.Find(vendorId);
       return View(vendor);
     }
 
-    [HttpGet("/vendor/{vendorName}/orders/{orderId}")]
+    [HttpGet("/vendor/{vendorId}/orders/{orderId}")]
     public ActionResult Show(int vendorId, int orderId)
     {
       Order order = Order.Find(orderId);

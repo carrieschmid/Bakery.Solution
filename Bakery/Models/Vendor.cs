@@ -15,9 +15,9 @@ namespace Bakery.Models
         public Vendor (string vendorName)
         {
             Name = vendorName;
+            Orders = new List<Order>{};
             _instances.Add(this);
             Id = _instances.Count;
-            Orders = new List<Order>{};
         }
 
         public static void ClearAll()
@@ -37,7 +37,7 @@ namespace Bakery.Models
 
         public static Vendor Find(int searchId)
         {
-        return _instances[searchId-1];
+        return _instances[searchId - 1];
         }
 
         }
