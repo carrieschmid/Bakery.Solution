@@ -37,4 +37,4 @@ _C#_
 
 *MIT Liscence*
 
-Copyright (c) 2016 **_Carrie Schmid_**
+Copyright (c) 2019 **_Carrie Schmid_**
